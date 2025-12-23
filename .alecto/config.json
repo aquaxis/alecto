@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem",
+        "./"
+      ]
+    },
+    "ddg-search": {
+      "command": "uvx",
+      "args": [
+        "duckduckgo-mcp-server"
+      ]
+    },
+    "bash": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "bash-mcp"
+      ]
+    }
+  },
+  "ollama": {
+    "host": "http://localhost:11434",
+    "model": "ministral-3:14b"
+  }
+}

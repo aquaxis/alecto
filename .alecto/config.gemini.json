@@ -1,0 +1,45 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem",
+        "./"
+      ]
+    },
+    "gemini-cli": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "mcp-gemini-cli",
+        "--allow-npx"
+      ],
+      "env": {}
+    },
+    "shell": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "shell-command-mcp"
+      ],
+      "env": {
+        "ALLOWED_COMMANDS": "ls,cat,pwd,echo,grep,date"
+      }
+    },
+    "translate": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "ollama-mcp-server"
+      ],
+      "env": {
+        "OLLAMA_MODEL": "Llama-3-ELYZA-JP:latest",
+        "SYSTEM_PROMPT": "You are an experienced Japanese-English translator. If someone asks you a question in Japanese, please translate it into English."
+      }
+    }
+  },
+  "ollama": {
+    "host": "http://localhost:11434",
+    "model": "ministral-3:14b"
+  }
+}
