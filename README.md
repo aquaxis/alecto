@@ -40,6 +40,12 @@ ollama list
 ### 3. 依存パッケージのインストール
 
 ```bash
+make setup
+```
+
+または
+
+```bash
 npm install
 ```
 
@@ -114,18 +120,72 @@ npm start
 
 ## 開発
 
+### Makeコマンド
+
+```bash
+make help          # 使用可能なコマンド一覧
+make setup         # 実行環境のセットアップ（依存関係インストール）
+make build         # TypeScriptをコンパイル
+make dev           # 開発モード（TypeScript直接実行）
+make install       # グローバルにインストール
+make uninstall     # グローバルからアンインストール
+make clean         # ビルド成果物を削除
+make link          # 開発用グローバルリンク
+make unlink        # リンク解除
+make check-deps    # Node.js/npmのバージョン確認
+```
+
 ### ビルド
 
 ```bash
+make build
+# または
 npm run build
 ```
 
 ### 直接実行（TypeScript）
 
 ```bash
+make dev
+# または
 npx tsx src/main.ts
 ```
 
 ## ライセンス
 
 ISC
+
+## MCP Server
+
+### DuckDuckGo
+
+DuckDuckGo MCP Serverは、DuckDuckGo検索エンジンを使用したWeb検索機能を提供するMCPサーバーです。AIがインターネット上の情報を検索・取得できるようになります。
+
+#### インストール
+
+```bash
+uv venv
+source .venv/bin/activate
+uv pip install duckduckgo-mcp-server
+```
+
+#### 設定
+
+`.alecto/config.json` に以下を追加します:
+
+```json
+{
+  "mcpServers": {
+    "duckduckgo": {
+      "command": "uv",
+      "args": ["run", "duckduckgo-mcp-server"]
+    }
+  }
+}
+```
+
+#### 提供されるツール
+
+| ツール名 | 説明 |
+|----------|------|
+| `search` | DuckDuckGoでWeb検索を実行し、検索結果を取得します |
