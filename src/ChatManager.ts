@@ -85,6 +85,8 @@ export class ChatManager {
     this.toolManager = new ToolManager();
     this.chatInterface = new ChatInterface();
 
+    console.log('Model is ' + this.model);
+
     this.messages = [
       {
         role: "system",

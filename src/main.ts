@@ -14,6 +14,7 @@ import gradient from 'gradient-string';
 
 import { ChatManager } from "./ChatManager.js";
 import { ollamaConfig } from "./config.js";
+import { SetupManager } from "./SetupManager.js";
 
 /**
  * ASCIIアートのALECTOロゴを表示する
@@ -71,6 +72,14 @@ async function showStartupMessage(): Promise<void> {
  * ロゴ表示、起動メッセージ、ChatManagerの初期化と開始を行う
  */
 async function main() {
+  const args = process.argv.slice(2);
+
+  if (args.includes("-setup")) {
+    const setup = new SetupManager();
+    await setup.run();
+    process.exit(0);
+  }
+
   await displayLogo();
   await showStartupMessage();
 

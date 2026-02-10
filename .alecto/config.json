@@ -23,6 +23,6 @@
   },
   "ollama": {
     "host": "http://localhost:11434",
-    "model": "ministral-3:14b"
+    "model": "glm-4.7-flash:latest"
   }
 }
