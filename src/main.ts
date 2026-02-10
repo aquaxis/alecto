@@ -12,8 +12,6 @@ import figlet from 'figlet';
 import chalk from 'chalk';
 import gradient from 'gradient-string';
 
-import { ChatManager } from "./ChatManager.js";
-import { ollamaConfig } from "./config.js";
 import { SetupManager } from "./SetupManager.js";
 
 /**
@@ -83,6 +81,8 @@ async function main() {
   await displayLogo();
   await showStartupMessage();
 
+  const { ChatManager } = await import("./ChatManager.js");
+  const { ollamaConfig } = await import("./config.js");
   const chatManager = new ChatManager(ollamaConfig);
 
   try {

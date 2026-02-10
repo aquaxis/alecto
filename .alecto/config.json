@@ -6,19 +6,6 @@
         "@modelcontextprotocol/server-filesystem",
         "./"
       ]
-    },
-    "ddg-search": {
-      "command": "uvx",
-      "args": [
-        "duckduckgo-mcp-server"
-      ]
-    },
-    "bash": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "bash-mcp"
-      ]
     }
   },
   "ollama": {
